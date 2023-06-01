@@ -1,3 +1,5 @@
+const axios = require('axios').default;
+
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '34608361-47fad47221650f74f55826075';
 
@@ -12,8 +14,7 @@ export default class ImagesApiService {
 
     this.updatePage();
 
-    const response = await fetch(url);
-    return await response.json();
+    return await axios.get(url).then(response => response.data);
   }
 
   updatePage() {

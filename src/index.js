@@ -1,7 +1,7 @@
 import './css/styles.css';
 
 import ImagesApiService from './api.js';
-import LoadMoreBtn from './components/LoadMoreBtn';
+// import LoadMoreBtn from './components/LoadMoreBtn';
 
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -15,13 +15,13 @@ const refs = {
 const lightbox = new SimpleLightbox('.gallery a', { overlayOpacity: 0.9 });
 
 const imagesApiService = new ImagesApiService();
-const loadMoreBtn = new LoadMoreBtn({
-  selector: '.load-more',
-  isHidden: true,
-});
+// const loadMoreBtn = new LoadMoreBtn({
+//   selector: '.load-more',
+//   isHidden: true,
+// });
 
-refs.form.addEventListener('submit', onSubmitBtn);
-loadMoreBtn.button.addEventListener('click', onLoadMoreBtn);
+// refs.form.addEventListener('submit', onSubmitBtn);
+// loadMoreBtn.button.addEventListener('click', onLoadMoreBtn);
 
 function onSubmitBtn(event) {
   event.preventDefault();
@@ -69,6 +69,16 @@ function onLoadMoreBtn() {
     })
     .catch(error => console.log(error));
 }
+
+// window.addEventListener('scroll', onScroll);
+
+// function onScroll() {
+//   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+//   if (scrollTop + clientHeight >= scrollHeight - 5) {
+//     onLoadMoreBtn();
+//   }
+// }
 
 function createMarkup(imgs) {
   const createMarkup = imgs
